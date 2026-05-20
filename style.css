@@ -1,0 +1,355 @@
+        /* ==========================================================================
+           1. SIZ TAQDIM ETGAN PREMIUM CSS STRUKTURASI (Luxury Bright Theme)
+           ========================================================================== */
+        :root {
+            --gold-bright: #e5ba5d;       /* Quyoshli yorqin oltin */
+            --gold-hover: #cfa13a;        /* To'q yorqin oltin */
+            --white-pure: #ffffff;        /* Sof oppoq */
+            --bg-cream: #faf6f0;          /* Italiya qaymoqli foni */
+            --text-dark: #1c1c1c;         /* Chuqur qora matn */
+            --text-muted: #6e6e6e;        /* Yumshoq kulrang */
+            --accent-red: #ff3838;        /* Ko'zga tashlanadigan qizil urg'u */
+            --shadow-premium: 0 15px 45px rgba(229, 186, 93, 0.15); /* Oltin nurlanish effekti */
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+        }
+
+        /* Yorqin va Shaffof Navigatsiya */
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom: 2px solid var(--gold-bright);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.02);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--text-dark);
+            letter-spacing: 2px;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--gold-bright);
+            font-size: 12px;
+            letter-spacing: 4px;
+            font-weight: bold;
+            display: block;
+            margin-top: 2px;
+        }
+
+        .nav-links { list-style: none; display: flex; }
+        .nav-links li { margin: 0 18px; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+        .nav-links a:hover { color: var(--gold-bright); }
+
+        .header-right { display: flex; align-items: center; gap: 25px; }
+
+        .cart-icon {
+            font-size: 24px;
+            color: var(--text-dark);
+            cursor: pointer;
+            position: relative;
+            transition: var(--transition);
+        }
+        .cart-icon:hover { color: var(--gold-bright); transform: scale(1.1); }
+
+        #cart-count {
+            position: absolute; top: -8px; right: -10px;
+            background: var(--accent-red); color: white;
+            font-size: 11px; font-weight: bold; width: 18px; height: 18px;
+            border-radius: 50%; display: flex; justify-content: center; align-items: center;
+        }
+
+        .btn-book-nav {
+            background: var(--text-dark);
+            color: var(--white-pure);
+            padding: 12px 26px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .btn-book-nav:hover { background: var(--gold-bright); color: var(--text-dark); }
+
+        /* Quyoshli Hero Oynasi */
+        .hero {
+            background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(250, 246, 240, 0.9)), 
+                        url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .welcome-badge {
+            background: var(--white-pure);
+            color: var(--gold-hover);
+            padding: 8px 20px;
+            font-weight: bold;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+
+        .hero-content h1 {
+            font-size: 58px;
+            color: var(--text-dark);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+
+        .hero-content p {
+            color: var(--text-muted);
+            font-size: 19px;
+            max-width: 650px;
+            margin: 0 auto 40px auto;
+        }
+
+        .hero-buttons { display: flex; justify-content: center; gap: 20px; }
+
+        .btn-main { background: var(--text-dark); color: var(--white-pure); padding: 16px 35px; text-transform: uppercase; font-size: 13px; font-weight: bold; text-decoration: none; transition: var(--transition); }
+        .btn-main:hover { background: var(--gold-bright); color: var(--text-dark); }
+        .btn-secondary { background: var(--white-pure); border: 2px solid var(--text-dark); color: var(--text-dark); padding: 14px 33px; text-transform: uppercase; font-size: 13px; font-weight: bold; text-decoration: none; transition: var(--transition); }
+        .btn-secondary:hover { background: var(--text-dark); color: var(--white-pure); }
+
+        /* Sommelier Bo'limi (Ochiq va Shinam) */
+        .sommelier-section { padding: 90px 8%; background: var(--white-pure); }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 36px; font-weight: 800; margin-bottom: 15px; color: var(--text-dark); }
+        .section-title p { color: var(--text-muted); }
+
+        .sommelier-box {
+            max-width: 800px; margin: 0 auto; background: var(--bg-cream);
+            padding: 40px; display: flex; gap: 40px; align-items: center; flex-wrap: wrap;
+            box-shadow: var(--shadow-premium); border-radius: 15px;
+        }
+        .sommelier-inputs, .sommelier-result { flex: 1; min-width: 260px; }
+        .sommelier-inputs label { display: block; margin-bottom: 12px; font-weight: bold; }
+        .sommelier-inputs select { width: 100%; padding: 15px; background: var(--white-pure); border: 2px solid #eee; font-size: 16px; margin-bottom: 25px; border-radius: 6px; outline: none; }
+
+        .sommelier-result { text-align: center; border-left: 2px solid #eee; padding-left: 40px; }
+        .sommelier-result i { font-size: 45px; color: var(--gold-bright); margin-bottom: 15px; }
+        .sommelier-result h4 { font-size: 20px; margin-bottom: 10px; }
+        .sommelier-result p { color: var(--gold-hover); font-weight: bold; font-size: 18px; }
+
+        /* 🌟 KATEGORIYA FILTR TUGMALARI */
+        .menu-filters {
+            display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: var(--white-pure); border: 2px solid #eee; color: var(--text-dark);
+            padding: 12px 28px; font-weight: bold; font-size: 14px; cursor: pointer; transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02); border-radius: 6px;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--gold-bright); border-color: var(--gold-bright); transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(229, 186, 93, 0.3);
+        }
+
+        /* Menyu Grid qismi */
+        .menu-section { padding: 90px 8%; }
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px; }
+
+        /* KO'ZNI O'YNATUVChI ELEGANT KARTALAR */
+        .menu-card {
+            background: var(--white-pure); border-radius: 16px; overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.02);
+            transition: var(--transition); display: block;
+        }
+        .menu-card.hidden { display: none !important; } /* Filtrlash uchun muqaddas klass */
+
+        .menu-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-premium);
+        }
+
+        /* --- SILKA ORQALI RASM TO'G'IRLASH --- */
+        .menu-img-wrapper {
+            background: var(--bg-cream); 
+            height: 220px;
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            overflow: hidden;
+        }
+        .menu-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        .menu-card:hover .menu-img-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .menu-info { padding: 30px; }
+        .menu-info h3 { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
+        .menu-info p { color: var(--text-muted); font-size: 14px; line-height: 1.5; margin-bottom: 20px; height: 42px; overflow: hidden; }
+        .menu-footer { display: flex; justify-content: space-between; align-items: center; }
+        .menu-footer .price { font-size: 19px; font-weight: bold; color: var(--text-dark); }
+
+        .btn-add-cart {
+            background: var(--text-dark); color: var(--white-pure); border: none;
+            width: 45px; height: 45px; border-radius: 50%; cursor: pointer; transition: var(--transition);
+            display: flex; justify-content: center; align-items: center; font-size: 16px;
+        }
+        .btn-add-cart:hover { background: var(--gold-bright); color: var(--text-dark); transform: rotate(90deg); }
+
+        /* Xizmatlar ko'rinishi */
+        .luxury-services { padding: 90px 8%; background: var(--white-pure); }
+        .services-grid { display: flex; justify-content: center; gap: 35px; flex-wrap: wrap; }
+        .service-card {
+            background: var(--bg-cream); padding: 40px; text-align: center; max-width: 400px;
+            border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.02); flex: 1; min-width: 280px;
+        }
+        .service-card i { font-size: 40px; color: var(--gold-bright); margin-bottom: 15px; }
+
+        /* Savat Oynasi (Ochiq va Oq) */
+        .cart-sidebar {
+            position: fixed; top: 0; right: -420px; width: 420px; height: 100vh;
+            background: var(--white-pure); border-left: 3px solid var(--gold-bright);
+            z-index: 1001; padding: 30px; display: flex; flex-direction: column; transition: var(--transition);
+            box-shadow: -10px 0 40px rgba(0,0,0,0.05);
+        }
+        .cart-sidebar.open { right: 0; }
+        .cart-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; padding-bottom: 15px; }
+        #cart-close { cursor: pointer; font-size: 20px; transition: var(--transition); }
+        #cart-close:hover { color: var(--accent-red); }
+        
+        .cart-items { flex: 1; overflow-y: auto; padding-top: 20px; }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; background: var(--bg-cream); padding: 15px; margin-bottom: 15px; border-radius: 8px; }
+        .cart-item-info h5 { font-size: 16px; margin-bottom: 5px; }
+        .cart-item-qty { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
+        .cart-item-qty button { background: var(--white-pure); border: 1px solid #ccc; width: 25px; height: 25px; cursor: pointer; border-radius: 4px; font-weight: bold; }
+        
+        .cart-item-right { text-align: right; }
+        .btn-remove-item { background: none; border: none; color: var(--accent-red); cursor: pointer; margin-top: 8px; font-size: 12px; text-decoration: underline; }
+        
+        .cart-footer { border-top: 2px solid #eee; padding-top: 20px; }
+        .cart-total { display: flex; justify-content: space-between; font-size: 20px; font-weight: bold; margin-bottom: 20px; }
+        .btn-checkout { background: var(--text-dark); color: var(--white-pure); border: none; width: 100%; padding: 16px; font-weight: bold; text-transform: uppercase; cursor: pointer; transition: var(--transition); }
+        .btn-checkout:hover { background: var(--gold-bright); color: var(--text-dark); }
+
+        /* Rezervatsiya */
+        .booking-section { padding: 90px 8%; }
+        .booking-wrapper { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+        .booking-info, .booking-form-wrapper { flex: 1; min-width: 320px; }
+        .booking-info h2 { font-size: 32px; font-weight: 800; margin-bottom: 20px; }
+        .booking-info p { margin-bottom: 15px; color: var(--text-muted); display: flex; align-items: center; }
+        .booking-info i { color: var(--gold-bright); margin-right: 12px; font-size: 18px; }
+
+        .booking-form-wrapper input { width: 100%; padding: 14px; background: var(--white-pure); border: 2px solid #eee; margin-bottom: 15px; border-radius: 8px; outline: none; }
+        .form-row { display: flex; gap: 15px; }
+        .btn-submit { background: var(--text-dark); color: var(--white-pure); border: none; width: 100%; padding: 15px; font-weight: bold; text-transform: uppercase; cursor: pointer; border-radius: 8px; transition: var(--transition); }
+        .btn-submit:hover { background: var(--gold-bright); color: var(--text-dark); }
+
+        /* --- INTEGRALLASHGAN ADMIN PANEL STILlARI --- */
+        .admin-modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6); z-index: 2000;
+            display: none; justify-content: center; align-items: center;
+        }
+        .admin-modal-overlay.show { display: flex; }
+        .admin-crypto-box {
+            background: white; padding: 35px; border-radius: 12px; text-align: center;
+            max-width: 360px; width: 90%; border-top: 5px solid var(--gold-bright);
+            box-shadow: var(--shadow-premium);
+        }
+        .admin-crypto-box i { font-size: 45px; color: var(--gold-bright); margin-bottom: 15px; }
+        .admin-crypto-box input {
+            width: 100%; padding: 12px; margin: 15px 0; border: 2px solid #eee;
+            border-radius: 6px; text-align: center; font-size: 16px; outline: none;
+        }
+        .error-text { color: var(--accent-red); font-weight: bold; margin-top: 10px; font-size: 13px; display: none; }
+        .btn-close-text { background: none; border: none; color: #777; margin-top: 10px; cursor: pointer; text-decoration: underline; }
+
+        .integrated-admin-panel {
+            background: #fdfbf7; border-top: 4px solid var(--gold-bright);
+            padding: 50px 8%; border-bottom: 2px solid #ddd;
+        }
+        .admin-panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 15px; }
+        .btn-close-admin { background: var(--accent-red); color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; transition: var(--transition); }
+        .btn-close-admin:hover { background: #cc0000; }
+
+        .admin-split-grid { display: flex; gap: 30px; flex-wrap: wrap; }
+        .admin-box-card { flex: 1; min-width: 320px; background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .admin-box-card h3 { margin-bottom: 20px; font-weight: 700; border-bottom: 2px solid var(--bg-cream); padding-bottom: 10px; }
+        .admin-box-card input, .admin-box-card select { width: 100%; padding: 11px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 6px; outline: none; }
+
+        .adm-table { width: 100%; border-collapse: collapse; }
+        .adm-table th, .adm-table td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; align-content: center; }
+        .adm-table th { background: var(--bg-cream); }
+        .adm-table-img { width: 45px; height: 45px; border-radius: 6px; object-fit: cover; }
+        .btn-delete-food { background: var(--accent-red); color: white; border: none; padding: 6px 12px; cursor: pointer; border-radius: 4px; transition: var(--transition); }
+        .btn-delete-food:hover { background: #cc0000; }
+        
+        .hidden { display: none !important; }
+
+        footer { background: var(--text-dark); color: #888; text-align: center; padding: 40px; font-size: 13px; }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; padding: 20px 2%; }
+            .nav-links { flex-direction: column; text-align: center; gap: 8px; }
+            .sommelier-result { border-left: none; padding-left: 0; border-top: 2px solid #eee; padding-top: 20px; }
+            .form-row { flex-direction: column; gap: 0; }
+            .cart-sidebar { width: 100%; right: -100%; }
+        }
+
+        .btn-checkout {
+    width: 100%;
+    padding: 15px;
+    background-color: #27ae60; /* Yashil rang - tasdiqlash ramzi */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s ease;
+}
+
+.btn-checkout:hover {
+    background-color: #219150;
+    transform: translateY(-2px);
+}
+
+.btn-checkout:active {
+    transform: translateY(0);
+}

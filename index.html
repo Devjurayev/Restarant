@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Kafe | Restaurant</title>
+    <!-- Shriftlar va FontAwesome ikonkalari -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo"> Kafe<span>Milliy RESTAURANT</span></a>
+        <ul class="nav-links">
+            <li><a href="#hero">Bosh sahifa</a></li>
+            <li><a href="#sommelier">Somelye</a></li>
+            <li><a href="#menu">Menyu</a></li>
+            <li><a href="./booking.html">Rezervatsiya</a></li>
+            <!-- <li></li> -->
+        </ul>
+        <div class="header-right">
+            <div class="cart-icon" id="cart-trigger">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span id="cart-count">0</span>
+            </div>
+            <a href="./booking.html" class="btn-book-nav">Joy band qilish</a>
+        </div>
+    </header>
+
+    <!-- HERO (PREMIUM STRUKTURA) --> 
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <span class="welcome-badge">Milliy Restaurant</span>
+            <h1>Haqiqiy Ta'm Va <br>Oliyjanoblik Uyg'unligi</h1>
+            <p>O'zbek milliy ta'omlari faqat siz uchun.</p>
+            <div class="hero-buttons">
+                <a href="./index.html#menu" class="btn-main">Menyuni Ko'rish</a>
+                <a href="./booking.html" class="btn-secondary">Joy Band Qilish</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOMMELIER (RAQAMLI YORDAMCHI) -->
+    <section class="sommelier-section" id="sommelier">
+        <div class="section-title">
+            <h2>Raqamli Somelye Eksperti</h2>
+            <p>Tanlagan taomingiz asosi bo'yicha eng mos keluvchi sharbat va vinolarni tavsiya qilamiz.</p>
+        </div>
+        <div class="sommelier-box">
+            <div class="sommelier-inputs">
+                <label for="sommelier-food-type">Asosiy taomingiz turini belgilang:</label>
+                <select id="sommelier-food-type">
+                    <option value="meat">Tuyoqli hayvonlar go'shti (Steyk, Kabob)</option>
+                    <option value="fish">Dengiz mahsulotlari (Salmon, Krevetka)</option>
+                    <option value="dessert">Shirinliklar va Nozik Desertlar</option>
+                    <option value="pasta">Italiya pastasi yoki Pitsa turlari</option>
+                </select>
+            </div>
+            <div class="sommelier-result">
+                <i class="fa-solid fa-wine-glass"></i>
+                <h4>Ekspert Tavsiyasi:</h4>
+                <p id="sommelier-advice">Qizil Premium Vino (Cabernet Sauvignon)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENYU FILTR VA GRIDLAR -->
+    <section class="menu-section" id="menu">
+        <div class="section-title">
+            <h2>Mavsumiy Oliyjanob Menyu</h2>
+            <p>Har bir taom shef-pazarlarimiz tomonidan zargarlik aniqligida tayyorlanadi.</p>
+        </div>
+
+        <div class="menu-filters">
+            <button class="filter-btn active" data-filter="all">Barchasi</button>
+            <button class="filter-btn" data-filter="meat">Go'shtli taomlar</button>
+            <button class="filter-btn" data-filter="fish">Dengiz mahsulotlari</button>
+            <button class="filter-btn" data-filter="dessert">Desertlar</button>
+        </div>
+
+        <div class="menu-grid" id="main-menu-grid">
+            <!-- JS Dinamik Elementlar Shu Yerga Keladi -->
+        </div>
+    </section>
+
+    <!-- XIZMATLAR (SERVICES) -->
+    <section class="luxury-services">
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fa-solid fa-plate-wheat"></i>
+                <h3>Oliyjanob Ta'm Ustasi</h3>
+                <p>Mishlen yulduzli pazandalar an'analariga sodiq qolgan holda tayyorlash.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-champagne-glasses"></i>
+                <h3>Premium Atmosfera</h3>
+                <p>Jonli ijro, Italiya qaymoqli ranglari foni va unutilmas sokinlik.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SAVAT SIDEBAR TIZIMI -->
+    <div class="cart-sidebar" id="cart-sidebar-wrapper">
+        <div class="cart-header">
+            <h3>Sizning Savatingiz</h3>
+            <i class="fa-solid fa-xmark" id="cart-close-trigger"></i>
+        </div>
+        <div class="cart-items" id="cart-items-wrapper">
+            <!-- Savat elementlari dinamik keladi -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Jami Hisob:</span>
+                <span id="cart-total-sum">0 UZS</span>
+            </div>
+<button onclick="sendOrderToTelegram()" class="btn-checkout">
+            <i class="fa-solid fa-paper-plane"></i> Buyurtmani tasdiqlash
+        </button>
+            </div>
+    </div>
+
+
+    <!-- ADMIN AVTORIZATSIYA MODAL OYNASI -->
+    <div class="admin-modal-overlay" id="admin-auth-overlay">
+        <div class="admin-crypto-box">
+            <i class="fa-solid fa-vault"></i>
+            <h3>Tizim Boshqaruvi</h3>
+            <input type="password" id="crypto-pass-input" placeholder="Xavfsizlik parolini kiriting (2012)">
+            <button class="btn-submit" id="admin-login-submit-btn">Tizimga Kirish</button>
+            <div class="error-text" id="auth-error-msg">Noto'g'ri maxfiy parol!</div>
+            <button class="btn-close-text" id="admin-auth-close-btn">Bekor qilish</button>
+        </div>
+    </div>
+
+    <!-- DINAMIK INTEGRALLASHGAN ADMIN PANEL -->
+    <div class="integrated-admin-panel hidden" id="live-admin-panel">
+        <div class="admin-panel-header">
+            <h2><i class="fa-solid fa-gauge-high"></i> Dinamik Menyu Boshqaruv Platformasi</h2>
+            <button class="btn-close-admin" id="admin-logout-btn">Panelni Yopish</button>
+        </div>
+        <div class="admin-split-grid">
+            <!-- Forma -->
+            <div class="admin-box-card">
+                <h3>Yangi Taom Qo'shish</h3>
+                <input type="text" id="add-food-name" placeholder="Taom yoki Ichimlik nomi" required>
+                <input type="text" id="add-food-desc" placeholder="Tarkibi va ta'rifi" required>
+                <input type="number" id="add-food-price" placeholder="Narxi (Faqat raqamda, UZS)" required>
+                <input type="text" id="add-food-img" placeholder="Rasm havolasi (URL)">
+                <select id="add-food-cat">
+                    <option value="meat">Go'shtli taomlar</option>
+                    <option value="fish">Dengiz mahsulotlari</option>
+                    <option value="dessert">Desertlar</option>
+                </select>
+                <button class="btn-submit" id="add-food-to-menu-btn">Menyoga Integratsiya Qilish</button>
+            </div>
+            <!-- Jadval -->
+            <div class="admin-box-card" style="flex: 2;">
+                <h3>Mavjud Taomlar Bazasi</h3>
+                <div style="overflow-x: auto;">
+                    <table class="adm-table">
+                        <thead>
+                            <tr>
+                                <th>Ko'rinishi</th>
+                                <th>Nomi</th>
+                                <th>Kategoriya</th>
+                                <th>Narxi</th>
+                                <th>O'chirish</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-live-table-rows">
+                            <!-- JS orqali to'ldiriladi -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <p>&copy; 2026 L'ÉLIXIR Luxury Restaurant Network. Barcha mualliflik huquqlari kafolatlangan. <a href="" id="admin-gate-link"></i>Xavfsizlik</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
