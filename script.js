@@ -14,6 +14,11 @@
         const cartItemsWrapper = document.getElementById('cart-items-wrapper');
         const cartCountBadge = document.getElementById('cart-count');
         const cartTotalSumSpan = document.getElementById('cart-total-sum');
+        const foodSelect = document.getElementById('sommelier-food-type');
+        const adviceText = document.getElementById('sommelier-advice');
+        const fileInput = document.getElementById('add-food-img-file');
+        const urlInput = document.getElementById('add-food-img');
+        const addFoodBtn = document.getElementById('add-food-to-menu-btn');
 
         // A. FOYDALANUVChI MENYUSINI CHIZISH
         function drawUserMenu(filterValue = "all") {
@@ -373,6 +378,144 @@ async function sendBookingToTelegram() {
         alert("Xatolik!");
     }
 }
-        // Ilk yuklanish nuqtasi
+document.addEventListener('DOMContentLoaded', () => {
+    const cartTrigger = document.getElementById('cart-trigger');
+    const cartSidebar = document.getElementById('cart-sidebar-wrapper');
+    const cartClose = document.getElementById('cart-close-trigger');
+    
+    const menuToggle = document.getElementById('mobile-menu');
+    const navList = document.getElementById('nav-list');
+
+    // Savatni ochish
+    if (cartTrigger && cartSidebar) {
+        cartTrigger.onclick = (e) => {
+            e.preventDefault();
+            cartSidebar.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Orqa fon qimirlamaydi
+        };
+    }
+
+    // Savatni yopish
+    if (cartClose && cartSidebar) {
+        cartClose.onclick = () => {
+            cartSidebar.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Skrol qaytadi
+        };
+    }
+
+    // Burger menyu
+    if (menuToggle && navList) {
+        menuToggle.onclick = () => {
+            navList.classList.toggle('active');
+            menuToggle.classList.toggle('is-active');
+        };
+    }
+});
+
+
+
+
+if (fileInput) {
+    fileInput.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+
+        reader.onloadend = function() {
+            // Rasmni "Base64" formatiga o'giradi (bu juda uzun tekst bo'ladi)
+            urlInput.value = reader.result;
+            console.log("Rasm yuklandi!");
+        }
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    });
+}
+
+if (addFoodBtn) {
+    addFoodBtn.onclick = function() {
+        // Elementlarni birma-bir o'zgaruvchiga olamiz
+        const elName = document.getElementById('add-food-name');
+        const elDesc = document.getElementById('add-food-desc');
+        const elPrice = document.getElementById('add-food-price');
+        const elCat = document.getElementById('add-food-cat');
+        const elImg = document.getElementById('add-food-img'); // Mana shu yerga diqqat qiling
+
+        // Tekshiruv: Agar bittasi bo'lmasa, xato bermasdan to'xtatadi
+        if (!elName || !elDesc || !elPrice || !elCat || !elImg) {
+            console.error("Diqqat! HTML-da qaysidir input topilmadi. ID-larni tekshiring.");
+            alert("Tizimda xatolik: Ba'zi maydonlar topilmadi.");
+            return; // Funksiyani to'xtatish
+        }
+
+        // Agar hamma element bo'lsa, qiymatlarni olamiz
+        const newFood = {
+            name: elName.value,
+            desc: elDesc.value,
+            price: elPrice.value,
+            category: elCat.value,
+            image: elImg.value // Xato shunda bo'lishi mumkin
+        };
+
+        console.log("Yangi taom qo'shilyapti:", newFood);
+        
+        // Bu yerda taomni qo'shish funksiyasini chaqirasiz (masalan: renderMenu yoki saveLocal)
+        // saveToLocalStorage(newFood); 
+    };
+}
+
+if (fileInput && urlInput) {
+    fileInput.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                // Rasmni tekst formatiga o'girib URL inputga yozadi
+                urlInput.value = event.target.result;
+                console.log("Rasm muvaffaqiyatli yuklandi!");
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+}
+
+// 2. "Menyoga integratsiya qilish" tugmasi bosilganda
+const addBtn = document.getElementById('add-food-to-menu-btn');
+
+if (addBtn) {
+    addBtn.onclick = function() {
+        const name = document.getElementById('add-food-name');
+        const desc = document.getElementById('add-food-desc');
+        const price = document.getElementById('add-food-price');
+        const cat = document.getElementById('add-food-cat');
+        const img = document.getElementById('add-food-img'); // Bu endi har doim bor
+
+        // Xatolikni oldini olish uchun tekshiruv
+        if (!name || !desc || !price || !cat || !img) {
+            alert("Kechirasiz, admin paneldagi ayrim elementlar topilmadi!");
+            return;
+        }
+
+        // Ma'lumotlarni yig'ish
+        const foodData = {
+            name: name.value,
+            desc: desc.value,
+            price: price.value,
+            category: cat.value,
+            image: img.value // Ikkala holda ham shundan olinadi
+        };
+
+        if (!foodData.name || !foodData.price || !foodData.image) {
+            alert("Iltimos, barcha maydonlarni to'ldiring!");
+            return;
+        }
+
+        // Bu yerda taomni saqlash funksiyasini chaqiring
+        console.log("Tayyor taom:", foodData);
+        // addNewFood(foodData); 
+    };
+}
+
+// Ilk yuklanish nuqtasi
         drawUserMenu();
         drawAdminTable();
