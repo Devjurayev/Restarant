@@ -10,25 +10,34 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <a href="#" class="logo"> Kafe<span>Milliy RESTAURANT</span></a>
-        <ul class="nav-links">
-            <li><a href="#hero">Bosh sahifa</a></li>
-            <li><a href="#sommelier">Somelye</a></li>
-            <li><a href="#menu">Menyu</a></li>
-            <li><a href="./booking.html">Rezervatsiya</a></li>
-            <!-- <li></li> -->
-        </ul>
-        <div class="header-right">
-            <div class="cart-icon" id="cart-trigger">
-                <i class="fa-solid fa-bag-shopping"></i>
-                <span id="cart-count">0</span>
-            </div>
-            <a href="./booking.html" class="btn-book-nav">Joy band qilish</a>
-        </div>
-    </header>
+<header>
+    <a href="./index.html" class="logo"> Kafe<span>Milliy RESTAURANT</span></a>
+    
+    <ul class="nav-links" id="nav-list">
+        <li><a href="./index.html">Bosh sahifa</a></li>
+        <li><a href="./index.html#sommelier">Somelye</a></li>
+        <li><a href="./index.html#menu">Menyu</a></li>
+        <li><a href="./booking.html">Rezervatsiya</a></li>
+        <li class="mobile-book-btn"><a href="./booking.html" class="btn-book-nav">Joy band qilish</a></li>
+    </ul>
 
-    <!-- HERO (PREMIUM STRUKTURA) --> 
+    <div class="header-right">
+        <div class="cart-icon" id="cart-trigger">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span id="cart-count">0</span>
+        </div>
+        
+        <a href="./booking.html" class="btn-book-nav desktop-book-btn">Joy band qilish</a>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </div>
+</header>
+
+<!-- HERO (PREMIUM STRUKTURA) --> 
     <section class="hero" id="hero">
         <div class="hero-content">
             <span class="welcome-badge">Milliy Restaurant</span>
@@ -72,12 +81,12 @@
             <p>Har bir taom shef-pazarlarimiz tomonidan zargarlik aniqligida tayyorlanadi.</p>
         </div>
 
-        <div class="menu-filters">
-            <button class="filter-btn active" data-filter="all">Barchasi</button>
-            <button class="filter-btn" data-filter="meat">Go'shtli taomlar</button>
-            <button class="filter-btn" data-filter="fish">Dengiz mahsulotlari</button>
-            <button class="filter-btn" data-filter="dessert">Desertlar</button>
-        </div>
+ <div class="menu-categories">
+    <button class="filter-btn active" data-filter="all">Barchasi</button>
+    <button class="filter-btn" data-filter="meat">Go'shtli taomlar</button>
+    <button class="filter-btn" data-filter="fish">Dengiz mahsulotlari</button>
+    <button class="filter-btn" data-filter="dessert">Desertlar</button>
+</div>
 
         <div class="menu-grid" id="main-menu-grid">
             <!-- JS Dinamik Elementlar Shu Yerga Keladi -->
@@ -126,7 +135,7 @@
         <div class="admin-crypto-box">
             <i class="fa-solid fa-vault"></i>
             <h3>Tizim Boshqaruvi</h3>
-            <input type="password" id="crypto-pass-input" placeholder="Xavfsizlik parolini kiriting ">
+            <input type="password" id="crypto-pass-input" placeholder="Xavfsizlik parolini kiriting (2012)">
             <button class="btn-submit" id="admin-login-submit-btn">Tizimga Kirish</button>
             <div class="error-text" id="auth-error-msg">Noto'g'ri maxfiy parol!</div>
             <button class="btn-close-text" id="admin-auth-close-btn">Bekor qilish</button>
@@ -143,10 +152,15 @@
             <!-- Forma -->
             <div class="admin-box-card">
                 <h3>Yangi Taom Qo'shish</h3>
-                <input type="text" id="add-food-name" placeholder="Taom yoki Ichimlik nomi" required>
-                <input type="text" id="add-food-desc" placeholder="Tarkibi va ta'rifi" required>
-                <input type="number" id="add-food-price" placeholder="Narxi (Faqat raqamda, UZS)" required>
-                <input type="text" id="add-food-img" placeholder="Rasm havolasi (URL)">
+                <input type="text" id="add-food-name" placeholder="Taom nomi">
+                <input type="text" id="add-food-desc" placeholder="Ta'rifi va tarkibi">
+                <input type="number" id="add-food-price" placeholder="Narxi faqat so'mda">
+<div class="admin-input-group">
+    <label>Rasm yuklash (Ikkala usuldan biri):</label>
+    <input type="file" id="add-food-img-file" accept="image/*" style="margin-bottom: 10px;">
+    
+    <input type="text" id="add-food-img" placeholder="Rasm URL manzili">
+</div>
                 <select id="add-food-cat">
                     <option value="meat">Go'shtli taomlar</option>
                     <option value="fish">Dengiz mahsulotlari</option>
